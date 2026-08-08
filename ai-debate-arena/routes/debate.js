@@ -4,6 +4,7 @@ const Debate = require('../models/Debate');
 const Vote = require('../models/Vote');
 const { executeDebateRound } = require('../services/aiOrchestrator');
 
+// Start a new debate
 router.post('/start', async (req, res) => {
   try {
     const { topic, category, difficulty, style, ai1Model, ai2Model, totalRounds } = req.body;
@@ -17,6 +18,7 @@ router.post('/start', async (req, res) => {
   }
 });
 
+// Run a debate round
 router.post('/:id/round', async (req, res) => {
   try {
     const { roundNumber } = req.body;
@@ -44,6 +46,7 @@ router.post('/:id/round', async (req, res) => {
   }
 });
 
+// Get leaderboard stats
 router.get('/leaderboard', async (req, res) => {
   try {
     const debates = await Debate.find({ status: 'completed' });

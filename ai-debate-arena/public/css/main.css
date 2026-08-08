@@ -1,23 +1,647 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
+/* =========================================================
+   PREMIUM DESIGN SYSTEM
+   Editorial Luxury / Modern Minimal
+   ========================================================= */
+
 :root {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  /* Typography */
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  /* Core Backgrounds */
+  --bg-deep: #080909;
+  --bg-primary: #0b0c0c;
+  --bg-secondary: #101111;
+  --bg-surface: #141515;
+  --bg-elevated: #191a1a;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-soft: rgba(255, 255, 255, 0.11);
+  --border-strong: rgba(255, 255, 255, 0.17);
+
+  /* Luxury Accent */
+  --accent-gold: #d6b36a;
+  --accent-gold-light: #ead7a8;
+  --accent-gold-dark: #a98445;
+
+  /* Secondary Accent */
+  --accent-emerald: #4f9b7d;
+
+  /* Typography */
+  --text-primary: #f5f3ee;
+  --text-secondary: #c2c0ba;
+  --text-muted: #858580;
+  --text-subtle: #5f605d;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 15px 45px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.42);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  color-scheme: dark;
 }
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(214, 179, 106, 0.07),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #080909 0%,
+      #0b0c0c 45%,
+      #080909 100%
+    );
+
+  letter-spacing: -0.012em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+main#app {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
+  padding: 3rem 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex-grow: 1;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+  font-family: var(--font-display);
+
+  font-weight: 600;
+  letter-spacing: -0.035em;
+
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ELEGANT TEXT ACCENTS
+   ========================================================= */
+
+.text-gold-gradient {
+  background: linear-gradient(
+    120deg,
+    #f0dfb6 0%,
+    #d6b36a 45%,
+    #a98445 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-gradient {
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #d8d6d0 55%,
+    #989994 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.text-emerald-gradient {
+  background: linear-gradient(
+    120deg,
+    #d9eee4 0%,
+    #75b99b 55%,
+    #4f9b7d 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   PREMIUM GLASS / SURFACE
+   ========================================================= */
 
 .glass-card {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+
+  width: 100%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    ),
+    var(--bg-surface);
+
+  border: 1px solid var(--border-subtle);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
+
+/* Extremely subtle top highlight */
+
+.glass-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0 0 auto 0;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--border-soft);
+
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   AI COMPARISON CARDS
+   ========================================================= */
+
+.ai-1-card {
+  position: relative;
+
+  border-left: 2px solid var(--accent-gold) !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(214, 179, 106, 0.055),
+      transparent 55%
+    ),
+    var(--bg-surface);
+}
+
+
+.ai-2-card {
+  position: relative;
+
+  border-left: 2px solid var(--accent-emerald) !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(79, 155, 125, 0.055),
+      transparent 55%
+    ),
+    var(--bg-surface);
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+  width: 100%;
+
+  background: #0d0e0e !important;
+
+  border: 1px solid var(--border-soft) !important;
+
+  border-radius: var(--radius-md) !important;
+
+  color: var(--text-primary) !important;
+
+  padding: 0.85rem 1rem !important;
+
+  font-family: var(--font-sans);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--border-strong) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+
+  border-color: rgba(214, 179, 106, 0.65) !important;
+
+  background: #101111 !important;
+
+  box-shadow:
+    0 0 0 3px rgba(214, 179, 106, 0.07),
+    0 8px 30px rgba(0, 0, 0, 0.18) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-subtle) !important;
+}
+
+
+/* =========================================================
+   PREMIUM BUTTONS
+   ========================================================= */
+
+.btn-gold,
+.btn-emerald,
+.btn-silver {
+  border: none;
+
+  border-radius: var(--radius-md);
+
+  padding: 0.8rem 1.25rem;
+
+  font-family: var(--font-sans);
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+
+/* Gold */
+
+.btn-gold {
+  color: #17130b;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ead19a 0%,
+      #d6b36a 50%,
+      #b78f4b 100%
+    );
+
+  box-shadow:
+    0 8px 25px rgba(214, 179, 106, 0.14);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 32px rgba(214, 179, 106, 0.22);
+
+  filter: brightness(1.05);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+
+/* Emerald */
+
+.btn-emerald {
+  color: #07120d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #78b99e 0%,
+      #4f9b7d 100%
+    );
+
+  box-shadow:
+    0 8px 25px rgba(79, 155, 125, 0.12);
+}
+
+.btn-emerald:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 32px rgba(79, 155, 125, 0.2);
+
+  filter: brightness(1.05);
+}
+
+
+/* Silver */
+
+.btn-silver {
+  color: #111;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f7f2 0%,
+      #d8d6d0 100%
+    );
+
+  box-shadow:
+    0 8px 25px rgba(255, 255, 255, 0.08);
+}
+
+.btn-silver:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 32px rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================================
+   SECONDARY / OUTLINE BUTTON
+   ========================================================= */
+
+.btn-outline {
+  color: var(--text-secondary);
+
+  background: transparent;
+
+  border: 1px solid var(--border-soft);
+
+  border-radius: var(--radius-md);
+
+  padding: 0.8rem 1.2rem;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn-outline:hover {
+  color: var(--text-primary);
+
+  border-color: var(--border-strong);
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   DIVIDERS
+   ========================================================= */
+
+.divider {
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--border-soft),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   BADGES / LABELS
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 0.45rem;
+
+  padding: 0.35rem 0.7rem;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--border-subtle);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: var(--text-secondary);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  color: var(--accent-gold-light);
+
+  border-color: rgba(214, 179, 106, 0.2);
+
+  background: rgba(214, 179, 106, 0.06);
+}
+
+.badge-emerald {
+  color: #8ac7ab;
+
+  border-color: rgba(79, 155, 125, 0.2);
+
+  background: rgba(79, 155, 125, 0.06);
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  color: #111;
+
+  background: var(--accent-gold);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
+  height: 7px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #080909;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #2a2b29;
+
+  border-radius: 999px;
+
+  border: 2px solid #080909;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #55544e;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(214, 179, 106, 0.7);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  main#app {
+    padding: 2rem 1rem;
+  }
+
+  .glass-card {
+    border-radius: 14px;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
