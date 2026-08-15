@@ -2,32 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-<<<<<<< HEAD
-// Start a new debate
-router.post('/start', async (req, res) => {
-  try {
-    const { topic, category, difficulty, style, ai1Model, ai2Model, totalRounds } = req.body;
-    const debate = await Debate.create({
-      topic, category, difficulty, style, ai1Model, ai2Model, totalRounds,
-      status: 'in-progress', rounds: []
-    });
-    res.json({ debateId: debate._id, status: 'started' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// Run a debate round
-router.post('/:id/round', async (req, res) => {
-  try {
-    const { roundNumber } = req.body;
-    const debate = await Debate.findById(req.params.id);
-    if (!debate) return res.status(404).json({ error: 'Debate not found' });
-=======
 
 const Debate =
     require('../models/Debate');
->>>>>>> e6f8146 (Connect debate arena to OpenRouter)
 
 
 const {
@@ -67,15 +44,7 @@ function getOpenRouterApiKey() {
     }
 
 
-<<<<<<< HEAD
-// Get leaderboard stats
-router.get('/leaderboard', async (req, res) => {
-  try {
-    const debates = await Debate.find({ status: 'completed' });
-    const stats = {};
-=======
     return apiKey;
->>>>>>> e6f8146 (Connect debate arena to OpenRouter)
 
 }
 
@@ -282,7 +251,7 @@ router.get(
         try {
 
             console.log(
-                '🔎 Loading free OpenRouter models...'
+                '≡ƒöÄ Loading free OpenRouter models...'
             );
 
 
@@ -291,7 +260,7 @@ router.get(
 
 
             console.log(
-                `✅ Found ${models.length} free OpenRouter models`
+                `Γ£à Found ${models.length} free OpenRouter models`
             );
 
 
@@ -312,7 +281,7 @@ router.get(
         catch (error) {
 
             console.error(
-                '❌ Failed to load OpenRouter models:',
+                'Γ¥î Failed to load OpenRouter models:',
                 error.message
             );
 
@@ -377,7 +346,7 @@ router.post(
             */
 
             console.log(
-                '🚀 Starting debate...'
+                '≡ƒÜÇ Starting debate...'
             );
 
             console.log(
@@ -584,7 +553,7 @@ router.post(
             */
 
             console.log(
-                `✅ Debate created: ${debate._id}`
+                `Γ£à Debate created: ${debate._id}`
             );
 
 
@@ -616,7 +585,7 @@ router.post(
         catch (error) {
 
             console.error(
-                '❌ Start debate error:',
+                'Γ¥î Start debate error:',
                 error
             );
 
@@ -770,7 +739,7 @@ router.post(
             */
 
             console.log(
-                `⚔️ Debate ${debate._id} — Round ${currentRound}`
+                `ΓÜö∩╕Å Debate ${debate._id} ΓÇö Round ${currentRound}`
             );
 
             console.log(
@@ -869,7 +838,7 @@ router.post(
         catch (error) {
 
             console.error(
-                '❌ Debate round error:',
+                'Γ¥î Debate round error:',
                 error
             );
 
@@ -1066,7 +1035,7 @@ router.get(
         catch (error) {
 
             console.error(
-                '❌ Leaderboard error:',
+                'Γ¥î Leaderboard error:',
                 error
             );
 
