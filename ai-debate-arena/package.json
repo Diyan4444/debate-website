@@ -1,7 +1,7 @@
 {
-  "name": "ai-debate-arena-backend",
+  "name": "ai-debate-arena",
   "version": "1.0.0",
-  "description": "Backend engine for AI Debate Arena",
+  "description": "AI Debate Arena - Multi-model AI debate platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
